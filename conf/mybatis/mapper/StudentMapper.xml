@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.atguigu.ssm.mapper.StudentMapper">
+	
+	<!-- public List<Employee> getAllEmps(); -->
+	<select id="getAllEmps" resultMap="myEmpAndDept">
+		SELECT
+			studentId,
+			`name`,
+			identifyNo,
+			profess,
+			class,
+			enroTime,
+			telNo,
+			credit
+		FROM tbl_student
+	</select>
+	
+	<resultMap type="com.atguigu.ssm.beans.student" id="myEmpAndDept">
+		<id column="studentId" property="studentId"/>
+		<result column="name" property="name"/>
+		<result column="identifyNo" property="identifyNo"/>
+		<result column="profess" property="profess"/>
+		<result column="class" property="classs"/>
+		<result column="enroTime" property="enroTime"/>
+		<result column="telNo" property="telNo"/>
+		<result column="credit" property="credit"/>
+	</resultMap>
+</mapper>
